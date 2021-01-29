@@ -22,4 +22,9 @@ public interface DiaryRepository extends JpaRepository<DiaryEntity, Integer> {
     @Transactional
     Integer updateById(String title, String content, LocalDateTime modifiedAt, int id);
 
+    @Query("UPDATE DiaryEntity c SET c.status = false WHERE c.id = ?1")
+    @Modifying
+    @Transactional
+    void softDeleteById(int id);
+
 }

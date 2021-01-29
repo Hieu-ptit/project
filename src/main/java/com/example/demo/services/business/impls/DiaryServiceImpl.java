@@ -63,4 +63,12 @@ public class DiaryServiceImpl implements DiaryService {
         DiaryDto diaryDto = diaryMapper.mapToDiaryDto(diaryEntity);
         return Response.ok(diaryDto);
     }
+
+    @Override
+    public ResponseEntity<ResponseDetail<DiaryDto>> deleteDiaryById(int id) {
+        diaryRepository.softDeleteById(id);
+        DiaryEntity diaryEntity = diaryRepository.findById(id);
+        DiaryDto diaryDto = diaryMapper.mapToDiaryDto(diaryEntity);
+        return Response.ok(diaryDto);
+    }
 }
