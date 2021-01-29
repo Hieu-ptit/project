@@ -5,6 +5,9 @@ public class DiaryIn {
 
     private String content;
 
+    private DiaryIn() {
+    }
+
     public String getTitle() {
         return title;
     }

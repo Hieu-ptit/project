@@ -17,7 +17,7 @@ public class DiaryEntity {
     @Column
     private String content;
 
-    @Column
+    @Column(updatable = false)
     private LocalDateTime createAt;
 
     @Column

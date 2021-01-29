@@ -9,6 +9,7 @@ import com.example.demo.models.outs.DiaryDto;
 import com.example.demo.repositories.DiaryRepository;
 import com.example.demo.repositories.UserRepository;
 import com.example.demo.services.business.DiaryService;
+import com.example.demo.services.business.UserService;
 import com.example.demo.services.mappers.DiaryMapper;
 import com.example.demo.services.validators.DiaryValidator;
 import com.example.demo.utils.StringResponses;
@@ -37,10 +38,10 @@ public class DiaryServiceImpl implements DiaryService {
     @Override
     public ResponseEntity<ResponseDetail<List<DiaryDto>>> read() {
         List<DiaryEntity> diaryEntityList = diaryRepository.getDiaryEntity();
-        List<UserEntity> userEntityList = userRepository.getUserEntity();
-        List<DiaryEntity> list = diaryEntityList.stream().filter(d -> userEntityList
-                .stream().map(UserEntity::getId).anyMatch(u -> u.equals(d.getIdUser()))).collect(Collectors.toList());
-        return Response.ok(diaryMapper.mapToListDiaryDto(list));
+//        List<UserEntity> userEntityList = userRepository.getUserEntity();
+//        List<DiaryEntity> list = diaryEntityList.stream().filter(d -> userEntityList
+//                .stream().map(UserEntity::getId).anyMatch(u -> u.equals(d.getIdUser()))).collect(Collectors.toList());
+        return Response.ok(diaryMapper.mapToListDiaryDto(diaryEntityList));
     }
 
     @Override
