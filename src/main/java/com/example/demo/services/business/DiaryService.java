@@ -14,4 +14,6 @@ public interface DiaryService {
 
     ResponseEntity<ResponseDetail<DiaryDto>> updateDiaryById(int id, DiaryIn diaryIn);
 
+    ResponseEntity<ResponseDetail<DiaryDto>> deleteDiaryById(int id);
+
 }

@@ -30,4 +30,10 @@ public class DiaryController {
     public ResponseEntity<ResponseDetail<DiaryDto>> updateClassById(@PathVariable("id") int id, @RequestBody DiaryIn diaryIn) {
         return diaryService.updateDiaryById(id, diaryIn);
     }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<ResponseDetail<DiaryDto>> deleteClassById(@PathVariable(value = "id") int id) {
+        return diaryService.deleteDiaryById(id);
+    }
+
 }
