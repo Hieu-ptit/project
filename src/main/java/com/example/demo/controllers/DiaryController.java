@@ -21,6 +21,11 @@ public class DiaryController {
         return diaryService.read();
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<ResponseDetail<DiaryDto>> findDiaryById(@PathVariable int id) {
+        return diaryService.findDiaryById(id);
+    }
+
     @PostMapping
     public ResponseEntity<ResponseDetail<DiaryDto>> postClass(@RequestBody DiaryIn diaryIn) {
         return diaryService.createDiary(diaryIn);
@@ -35,11 +40,4 @@ public class DiaryController {
     public ResponseEntity<ResponseDetail<DiaryDto>> deleteClassById(@PathVariable(value = "id") int id) {
         return diaryService.deleteDiaryById(id);
     }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<ResponseDetail<DiaryDto>> findDiaryById(@PathVariable int id) {
-        return diaryService.findDiaryById(id);
-    }
-
-
 }

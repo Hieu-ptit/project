@@ -10,7 +10,7 @@ public class CategoryEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column
+    @Column(columnDefinition = "nvarchar(100)", nullable = false, unique = true)
     private String name;
 
     @Column

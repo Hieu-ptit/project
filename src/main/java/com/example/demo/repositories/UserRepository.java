@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface UserRepository extends JpaRepository<UserEntity, Integer> {
 
-    @Query("select u from UserEntity u")
-    List<UserEntity> getUserEntity();
+    @Query("SELECT u FROM UserEntity u WHERE u.id = ?1")
+    List<UserEntity> getUserEntity(int id);
 }
