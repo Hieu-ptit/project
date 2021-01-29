@@ -25,4 +25,9 @@ public class DiaryController {
     public ResponseEntity<ResponseDetail<DiaryDto>> postClass(@RequestBody DiaryIn diaryIn) {
         return diaryService.createDiary(diaryIn);
     }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<ResponseDetail<DiaryDto>> updateClassById(@PathVariable("id") int id, @RequestBody DiaryIn diaryIn) {
+        return diaryService.updateDiaryById(id, diaryIn);
+    }
 }
