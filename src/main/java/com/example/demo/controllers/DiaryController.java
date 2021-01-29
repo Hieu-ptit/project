@@ -36,4 +36,10 @@ public class DiaryController {
         return diaryService.deleteDiaryById(id);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<ResponseDetail<DiaryDto>> findDiaryById(@PathVariable int id) {
+        return diaryService.findDiaryById(id);
+    }
+
+
 }
