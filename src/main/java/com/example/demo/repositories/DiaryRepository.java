@@ -27,4 +27,6 @@ public interface DiaryRepository extends JpaRepository<DiaryEntity, Integer> {
     @Transactional
     void softDeleteById(int id);
 
+    DiaryEntity findDiaryEntityById(int id);
+
 }

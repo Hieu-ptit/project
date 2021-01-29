@@ -11,6 +11,7 @@ import com.example.demo.repositories.UserRepository;
 import com.example.demo.services.business.DiaryService;
 import com.example.demo.services.mappers.DiaryMapper;
 import com.example.demo.services.validators.DiaryValidator;
+import com.example.demo.utils.StringResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -71,4 +72,13 @@ public class DiaryServiceImpl implements DiaryService {
         DiaryDto diaryDto = diaryMapper.mapToDiaryDto(diaryEntity);
         return Response.ok(diaryDto);
     }
+
+    @Override
+    public ResponseEntity<ResponseDetail<DiaryDto>> findDiaryById(int id) {
+        DiaryEntity diaryEntity = diaryRepository.findDiaryEntityById(id);
+        if(diaryEntity == null) return Response.badRequest(StringResponses.ID_NOT_VALID);
+        DiaryDto diaryDto = diaryMapper.mapToDiaryDto(diaryEntity);
+        return Response.ok(diaryDto);
+    }
+
 }
